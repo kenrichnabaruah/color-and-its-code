@@ -1,0 +1,171 @@
+/* ============================================
+     BASIC PAGE SETUP
+     ============================================ */
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #ffffff;
+    color: #212529;
+  }
+
+  /* ============================================
+     TOP BAR (logo on left, GitHub link on right)
+     ============================================ */
+  .topbar {
+    display: grid;
+    grid-template-columns: 1fr auto; /* logo takes remaining space, link takes only what it needs */
+    align-items: center;
+    padding: 20px 30px;
+    border-bottom: 1px solid #e9ecef;
+  }
+
+  .logo {
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  .github-link {
+    text-decoration: none;
+    color: #212529;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+  }
+
+  .github-link:hover {
+    background-color: #f1f3f5;
+  }
+
+  /* ============================================
+     HERO SECTION (big title at the top)
+     ============================================ */
+  .hero {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 50px 30px 30px 30px;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+  }
+
+  /* This makes just the word "code" colorful and animated */
+  .rainbow-text {
+    background: linear-gradient(90deg, red, orange, green, blue, purple, red);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: moveColors 6s linear infinite;
+  }
+
+  @keyframes moveColors {
+    0%   { background-position: 0% 0; }
+    100% { background-position: 300% 0; }
+  }
+
+  .hero p {
+    font-size: 18px;
+    color: #6b7280;
+    max-width: 500px;
+    line-height: 1.5;
+  }
+
+  /* ============================================
+     COLOR FAMILY SECTIONS
+     ============================================ */
+  .families {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 30px 60px 30px;
+  }
+
+  .family {
+    margin-top: 45px;
+  }
+
+  .family h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+
+  /* Each row of 10 color boxes.
+     "repeat(10, 1fr)" means: make 10 columns,
+     and split the space equally between them. */
+  .swatch-row {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 6px;
+  }
+
+  /* On small screens, show fewer columns per row
+     so the boxes don't get too squished */
+  @media (max-width: 700px) {
+    .swatch-row {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+
+  /* A single color box */
+  .swatch {
+    aspect-ratio: 1 / 1;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 6px;
+    font-family: monospace;
+    font-size: 10px;
+    transition: transform 0.15s ease;
+  }
+
+  /* Little "pop up" effect when hovering a color */
+  .swatch:hover {
+    transform: scale(1.1);
+  }
+
+  /* ============================================
+     "COPIED!" MESSAGE THAT POPS UP AT THE BOTTOM
+     ============================================ */
+  .toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #212529;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-family: monospace;
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .toast.show {
+    opacity: 1;
+  }
+
+  /* ============================================
+     FOOTER
+     ============================================ */
+  footer {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px 30px 60px 30px;
+    border-top: 1px solid #e9ecef;
+    color: #6b7280;
+    font-size: 13px;
+    display: grid;
+    grid-template-columns: 1fr auto; /* text on the left, link on the right */
+    gap: 10px;
+  }
+
+  footer a {
+    color: #6b7280;
+  }
